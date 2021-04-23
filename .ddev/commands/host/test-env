@@ -1,0 +1,16 @@
+#!/bin/bash
+
+## Description: Test if environment variable ENV_FILE_SUPPORTED of .env file is available
+## Usage: test-env
+## Example: "ddev test-env"
+
+# Possible workaround for v1.17+
+#export $(cat .env | xargs)
+
+if [[ -z "${ENV_FILE_SUPPORTED}" ]]; then
+  echo "Fail: enviroment variables of .env files are not available"
+else
+      echo "Success: enviroment variables of .env files are available"
+      echo "$ENV_FILE_SUPPORTED"
+fi
+
